@@ -147,6 +147,33 @@
   .main{padding:8px!important}
 }
 </style>
+
+<style id="app-watermark-style">
+.app-watermark{
+  position:fixed;
+  right:16px;
+  bottom:10px;
+  z-index:9999;
+  font-size:11px;
+  line-height:1.2;
+  font-weight:600;
+  letter-spacing:.2px;
+  opacity:.42;
+  pointer-events:none;
+  user-select:none;
+  white-space:nowrap;
+  color:#29435c;
+}
+@media (max-width:650px){
+  .app-watermark{
+    right:10px;
+    bottom:8px;
+    font-size:9px;
+    opacity:.38;
+  }
+}
+</style>
+
 </head><body>
 <section id="loginPage" class="login"><div class="login-card"><h1>HMC Maintenance</h1><p>Monitoring & Document Management System</p><div class="field"><label>ID / EMAIL</label><input id="email" autocomplete="username"></div><div class="field"><label>PASSWORD</label><input id="password" type="password" autocomplete="current-password"></div><button id="loginBtn" class="btn primary full">Masuk Sistem</button><div id="loginError" class="danger-text"></div></div></section>
 <div id="app" class="hidden"><input id="mobileMenuToggle" class="mobile-menu-toggle" type="checkbox" aria-hidden="true"><header class="top"><label for="mobileMenuToggle" class="mobile-menu-btn" aria-label="Buka menu">☰</label><b>HMC • MAINTENANCE MANAGEMENT SYSTEM</b><div class="userbox"><span id="userName">User</span> <span id="userRole" class="badge">ROLE</span><button id="logoutBtn" class="btn gray" onclick="document.getElementById('mobileMenuToggle').checked=false">Keluar</button></div></header><div class="layout"><aside class="side"><label for="mobileMenuToggle" class="mobile-menu-close">✕ <span>Menu</span></label><button id="navShift" class="nav active">📋 Laporan Shift</button><button id="navBreak" class="nav" onclick="document.getElementById('mobileMenuToggle').checked=false">⚠️ Breakdown Report</button><button id="navMonitor" class="nav" onclick="document.getElementById('mobileMenuToggle').checked=false">📊 Dashboard Monitoring</button></aside><label for="mobileMenuToggle" class="mobile-menu-overlay" aria-label="Tutup menu"></label><main class="main">
@@ -161,4 +188,8 @@
 <div class="panel"><div class="panel-head"><div><h2>⚠️ Monitoring Kelengkapan Breakdown</h2><p class="muted">Menampilkan kejadian breakdown dan kelengkapan informasi utama.</p></div></div><div class="table-wrap"><table><thead><tr><th>No</th><th>Tanggal</th><th>Machine</th><th>Problem</th><th>PIC</th><th>Foto</th><th>Kelengkapan</th></tr></thead><tbody id="monitorBreakRows"></tbody></table></div></div>
 </section>
 <section id="breakModule" class="hidden"><div class="panel"><h2 id="breakTitle">Tambah Breakdown</h2><p class="muted">Buat satu kejadian breakdown, unggah foto dari device, lalu simpan. Data langsung masuk cloud.</p><div class="form-grid"><div class="field"><label>No</label><input id="bNo" type="number"></div><div class="field"><label>Machine</label><input id="bMachine"></div><div class="field"><label>Date</label><input id="bDate" type="date"></div><div class="field"><label>From</label><input id="bFrom" type="time"></div><div class="field"><label>To</label><input id="bTo" type="time"></div><div class="field"><label>Down Time</label><input id="bDur" readonly></div><div class="field"><label>PIC</label><input id="bPic"></div><div class="field"><label>Stratification</label><input id="bStrat"></div></div><div class="form-grid two"><div class="field"><label>Problem Description *</label><textarea id="bProblem"></textarea></div><div class="field"><label>Checking Steps</label><textarea id="bChecking"></textarea></div><div class="field"><label>Problem Root Cause</label><textarea id="bCause"></textarea></div><div class="field"><label>Corrective Actions Taken</label><textarea id="bAction"></textarea></div><div class="field"><label>Spare Parts / Materials Consumed</label><textarea id="bParts"></textarea></div><div class="field"><label>Remarks</label><textarea id="bRemarks"></textarea></div></div><div class="field"><label>Foto / Dokumentasi</label><input id="bPhoto" type="file" accept="image/*"><div id="photoInfo" class="muted"></div></div><div class="actions-bar"><button id="breakSave" class="btn green">☁ Simpan Breakdown ke Cloud</button><button id="breakCancel" class="btn gray">Reset / Batal Edit</button></div></div><div class="panel"><div class="panel-head"><h2>Data Breakdown</h2><button class="btn primary" onclick="exportBreakExcel()">⬇ Excel</button></div><div class="table-wrap"><table><thead><tr><th>No</th><th>Machine</th><th>Date</th><th>From</th><th>To</th><th>Down Time</th><th>Problem</th><th>Checking</th><th>Root Cause</th><th>Corrective Action</th><th>Spare Parts</th><th>PIC</th><th>Stratification</th><th>Foto</th><th>Remarks</th><th>Aksi</th></tr></thead><tbody id="breakRows"></tbody></table></div></div></section>
-</main></div></div><div id="toast" class="toast hidden"></div><script src="app.js"></script></body></html>
+</main></div></div><div id="toast" class="toast hidden"></div><script src="app.js"></script>
+<!-- App watermark: visual only, does not affect application functionality -->
+<div class="app-watermark" aria-hidden="true">© Muhammad Fatih Nuril Hadi</div>
+
+</body></html>
