@@ -131,3 +131,398 @@ tbody tr:hover td{background:#f0f7fb}
   .actions-bar .btn{flex:1;min-width:150px}
   .field input,.field select,.field textarea{min-height:40px}
 }
+
+
+/* =========================================================
+   MOBILE RESPONSIVE PATCH
+   Fungsi aplikasi tidak diubah — hanya layout/tampilan.
+   ========================================================= */
+
+html{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+}
+
+body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+}
+
+.layout,
+.main,
+.panel,
+.table-wrap,
+.monitor-grid,
+.monitor-hero{
+  min-width:0;
+}
+
+.table-wrap{
+  width:100%;
+  max-width:100%;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+
+.table-wrap table{
+  width:max-content;
+  max-width:none;
+}
+
+/* Tablet */
+@media (max-width: 900px){
+  .top{
+    height:auto;
+    min-height:64px;
+    padding:10px 16px;
+    gap:10px;
+  }
+
+  .top>b{
+    font-size:13px;
+    line-height:1.3;
+  }
+
+  .userbox{
+    font-size:12px;
+    gap:8px;
+    min-width:0;
+  }
+
+  .userbox > span{
+    max-width:180px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+
+  .layout{
+    min-height:calc(100vh - 64px);
+  }
+
+  .main{
+    padding:16px;
+    width:100%;
+    overflow-x:hidden;
+  }
+
+  .monitor-grid{
+    grid-template-columns:minmax(0,1fr);
+  }
+
+  .monitor-side{
+    width:100%;
+  }
+
+  .monitor-hero{
+    flex-direction:column;
+    align-items:flex-start;
+    padding:20px;
+  }
+
+  .monitor-filter{
+    width:100%;
+  }
+
+  .monitor-filter input{
+    width:100%;
+    max-width:100%;
+  }
+
+  .stats-grid,
+  .monitor-stats{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .panel-head{
+    flex-wrap:wrap;
+  }
+
+  #shiftModule .panel:nth-child(2) .panel-head,
+  #breakModule .panel:nth-child(2) .panel-head{
+    align-items:flex-start;
+  }
+}
+
+/* HP */
+@media (max-width: 650px){
+  .top{
+    padding:10px 12px;
+    min-height:58px;
+    align-items:flex-start;
+  }
+
+  .top>b{
+    display:block;
+    font-size:11px;
+    letter-spacing:.35px;
+    max-width:55%;
+  }
+
+  .userbox{
+    font-size:11px;
+    margin-left:auto;
+  }
+
+  .avatar{
+    width:30px;
+    height:30px;
+    flex:0 0 30px;
+  }
+
+  .userbox > span{
+    max-width:105px;
+  }
+
+  .main{
+    padding:10px;
+    width:100%;
+  }
+
+  .panel{
+    width:100%;
+    max-width:100%;
+    padding:14px;
+    margin-bottom:12px;
+  }
+
+  #shiftModule .panel:first-child,
+  #breakModule .panel:first-child{
+    padding:15px;
+    border-radius:15px;
+  }
+
+  #shiftModule .panel:nth-child(2),
+  #breakModule .panel:nth-child(2){
+    padding:12px;
+    border-radius:15px;
+  }
+
+  #shiftTitle,
+  #breakTitle{
+    font-size:17px;
+    line-height:1.3;
+  }
+
+  .panel h2{
+    line-height:1.35;
+  }
+
+  .muted{
+    font-size:12px;
+  }
+
+  /* Semua field tetap penuh dan tidak keluar layar */
+  .form-grid,
+  .form-grid.two{
+    display:grid;
+    grid-template-columns:minmax(0,1fr)!important;
+    width:100%;
+    gap:0!important;
+  }
+
+  .field{
+    width:100%;
+    min-width:0;
+  }
+
+  .field input,
+  .field select,
+  .field textarea{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    font-size:14px;
+  }
+
+  .field textarea{
+    min-height:90px;
+  }
+
+  /* Toolbar/filter agar tidak melebar keluar HP */
+  .toolbar{
+    width:100%;
+    max-width:100%;
+    padding:10px;
+    align-items:stretch;
+  }
+
+  .toolbar > *{
+    max-width:100%;
+  }
+
+  .panel-head{
+    display:flex!important;
+    flex-direction:column;
+    align-items:stretch!important;
+    gap:10px!important;
+  }
+
+  .panel-head > div{
+    width:100%;
+    min-width:0;
+  }
+
+  #shiftModule .panel:nth-child(2) .panel-head > div:last-child,
+  #breakModule .panel:nth-child(2) .panel-head > div:last-child{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  #filterMonth{
+    flex:1 1 150px;
+    min-width:0;
+    max-width:100%;
+  }
+
+  .btn{
+    min-height:42px;
+    max-width:100%;
+    white-space:normal;
+  }
+
+  .actions-bar{
+    width:100%;
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    gap:8px;
+  }
+
+  .actions-bar .btn{
+    width:100%;
+    min-width:0;
+    flex:initial;
+  }
+
+  /* Tabel tidak dipaksa mengecil.
+     Tabel lebar digeser horizontal di dalam kotaknya. */
+  .table-wrap{
+    width:100%;
+    max-width:100%;
+    overflow-x:auto!important;
+    overflow-y:hidden;
+    display:block;
+    border-radius:10px;
+  }
+
+  #shiftModule .table-wrap table{
+    min-width:900px!important;
+  }
+
+  #breakModule .table-wrap table{
+    min-width:1650px!important;
+  }
+
+  .table-wrap th,
+  .table-wrap td{
+    white-space:normal;
+  }
+
+  /* Dashboard monitoring */
+  .monitor-hero{
+    width:100%;
+    padding:17px;
+    border-radius:15px;
+    gap:14px;
+  }
+
+  .monitor-hero h2{
+    font-size:20px;
+  }
+
+  .monitor-grid{
+    display:grid;
+    grid-template-columns:minmax(0,1fr)!important;
+    width:100%;
+  }
+
+  .monitor-stats,
+  .stats-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:8px;
+  }
+
+  .monitor-stats .stat,
+  .stats-grid .stat{
+    min-width:0;
+    padding:12px;
+  }
+
+  .stat b{
+    font-size:20px;
+  }
+
+  /* Login */
+  .login{
+    padding:15px;
+  }
+
+  .login-card{
+    width:100%;
+    max-width:430px;
+    padding:22px;
+  }
+
+  /* File/photo input tidak memaksa halaman melebar */
+  input[type="file"]{
+    width:100%;
+    max-width:100%;
+    font-size:12px;
+  }
+
+  .thumb{
+    max-width:70px!important;
+  }
+
+  /* Toast tetap berada di dalam layar HP */
+  .toast{
+    left:10px;
+    right:10px;
+    bottom:10px;
+    text-align:center;
+  }
+}
+
+/* HP sangat kecil */
+@media (max-width: 390px){
+  .top>b{
+    max-width:52%;
+    font-size:10px;
+  }
+
+  .userbox > span{
+    max-width:80px;
+  }
+
+  .main{
+    padding:8px;
+  }
+
+  .panel{
+    padding:11px;
+  }
+
+  .stats-grid,
+  .monitor-stats{
+    grid-template-columns:1fr!important;
+  }
+
+  .monitor-hero h2{
+    font-size:18px;
+  }
+
+  #filterMonth{
+    flex-basis:100%;
+  }
+
+  #shiftModule .panel:nth-child(2) .panel-head > div:last-child{
+    flex-direction:column;
+  }
+
+  #shiftModule .panel:nth-child(2) .panel-head > div:last-child > *{
+    width:100%;
+  }
+}
